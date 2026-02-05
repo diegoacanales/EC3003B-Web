@@ -22,7 +22,7 @@
         <div class="content">
             <div class="meta-box">
                 <div class="meta-item">
-                    <div class="meta-label">Fecha limite</div>
+                    <div class="meta-label">Fecha límite</div>
                     <div class="meta-value">Jue 12 feb, 11:59pm</div>
                 </div>
                 <div class="meta-item">
@@ -34,87 +34,146 @@
                     <div class="meta-value">Individual</div>
                 </div>
                 <div class="meta-item">
-                    <div class="meta-label">Modulos</div>
+                    <div class="meta-label">Módulos</div>
                     <div class="meta-value">M01, M02, M03</div>
                 </div>
             </div>
 
             <h2>Objetivo de Aprendizaje</h2>
-            <p>Aplicar la ecuacion de Mincer para estimar los retornos a la educacion y experiencia en el mercado laboral mexicano, interpretando los coeficientes en el contexto de decisiones de compensacion.</p>
+            <p>Aplicar la ecuación de Mincer para estimar los retornos a la educación y experiencia en el mercado laboral mexicano, interpretando los coeficientes en el contexto de decisiones de compensación.</p>
 
             <h2>Contexto</h2>
-            <p>Antes de disenar un sistema de compensaciones para la empresa, necesitamos entender como el mercado laboral mexicano valora diferentes caracteristicas del capital humano. La ecuacion de Mincer es el punto de partida para cuantificar estos retornos.</p>
+            <p>Antes de diseñar un sistema de compensaciones para la empresa, necesitamos entender cómo el mercado laboral mexicano valora diferentes características del capital humano. La ecuación de Mincer es el punto de partida para cuantificar estos retornos.</p>
+
+            <div class="alert alert-info">
+                <strong>Novedad:</strong> Cada estudiante analizará una región diferente de México. Esto permite comparaciones entre regiones y evita duplicación de trabajo.
+            </div>
+
+            <h2>Asignación de Regiones</h2>
+
+            <p>Cada estudiante tiene asignada una región según los últimos 4 dígitos de su matrícula. Configura tu matrícula en el archivo <code>.do</code> y el código filtrará automáticamente tu región.</p>
+
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Matrícula</th>
+                        <th>Región</th>
+                        <th>Estados (códigos INEGI)</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>6662</td><td>R1</td><td>02, 03</td><td>Baja California</td></tr>
+                    <tr><td>6925</td><td>R2</td><td>26, 25, 18</td><td>Pacífico Norte</td></tr>
+                    <tr><td>4381</td><td>R3</td><td>08, 10, 32</td><td>Sierra Norte</td></tr>
+                    <tr><td>7384, 2288</td><td>R4</td><td>05, 19, 28</td><td>Noreste</td></tr>
+                    <tr><td>7844</td><td>R5</td><td>14, 06, 01</td><td>Occidente</td></tr>
+                    <tr><td>3259</td><td>R6</td><td>11, 22, 24</td><td>Bajío</td></tr>
+                    <tr><td>6762, 6450</td><td>R7</td><td>09, 15</td><td>Megalópolis</td></tr>
+                    <tr><td>7782</td><td>R8</td><td>16, 12</td><td>Sur-Pacífico</td></tr>
+                    <tr><td>7325</td><td>R9</td><td>21, 29, 17</td><td>Centro</td></tr>
+                    <tr><td>6971</td><td>R10</td><td>30, 13, 27</td><td>Golfo</td></tr>
+                    <tr><td>1076</td><td>R11</td><td>20, 07</td><td>Sur</td></tr>
+                    <tr><td>6323</td><td>R12</td><td>31, 23, 04</td><td>Peninsular</td></tr>
+                </tbody>
+            </table>
+
+            <p><strong>Nota:</strong> Las regiones R4 (Noreste) y R7 (Megalópolis) tienen 2 estudiantes cada una. Esto permite comparación entre pares que analizan la misma región.</p>
 
             <h2>Instrucciones</h2>
 
-            <h3>Parte 1: Replicacion con ENIGH 2024 <span class="pts">(40 puntos)</span></h3>
+            <h3>Parte 1: Análisis Nacional <span class="pts">(25 puntos)</span></h3>
 
-            <h4>1. Preparacion de datos <span class="pts">(10 pts)</span></h4>
+            <h4>1. Preparación de datos - Muestra Nacional <span class="pts">(10 pts)</span></h4>
             <ul>
-                <li>Filtra la muestra a trabajadores asalariados de 18-65 anos</li>
-                <li>Construye las variables: log(ingreso por hora), anos de educacion, experiencia potencial, experiencia²</li>
-                <li>Reporta estadisticas descriptivas de tu muestra final</li>
+                <li>Filtra la muestra <strong>nacional</strong> a trabajadores asalariados de 18-65 años</li>
+                <li>Construye las variables: log(ingreso por hora), años de educación, experiencia potencial, experiencia²</li>
+                <li>Reporta estadísticas descriptivas de la muestra nacional</li>
+                <li><strong>Esperado:</strong> ~50,000-80,000 observaciones</li>
             </ul>
 
-            <h4>2. Estimacion basica <span class="pts">(15 pts)</span></h4>
+            <h4>2. Estimación básica - Muestra Nacional <span class="pts">(15 pts)</span></h4>
             <div class="formula">
                 ln(w) = β₀ + β₁·Educ + β₂·Exp + β₃·Exp² + ε
             </div>
             <ul>
-                <li>Presenta la tabla de regresion con errores estandar robustos</li>
-                <li>Interpreta cada coeficiente en terminos porcentuales</li>
+                <li>Presenta la tabla de regresión con errores estándar robustos</li>
+                <li>Interpreta cada coeficiente en términos porcentuales</li>
+                <li>Guarda estos resultados para comparación posterior</li>
             </ul>
 
-            <h4>3. Extensiones <span class="pts">(15 pts)</span></h4>
+            <h3>Parte 2: Análisis Regional <span class="pts">(45 puntos)</span></h3>
+
+            <h4>3. Extensiones - Tu Región <span class="pts">(15 pts)</span></h4>
             <ul>
-                <li>Agrega variables de control: genero, sector formal/informal, region</li>
+                <li>Filtra a <strong>tu región asignada</strong> usando los códigos de estado</li>
+                <li>Agrega variables de control: género, sector formal/informal</li>
                 <li>Compara los coeficientes con y sin controles</li>
-                <li>Discute el sesgo por variables omitidas</li>
+                <li>Discute el sesgo por variables omitidas en tu región</li>
             </ul>
 
-            <h3>Parte 2: Aplicacion al Proyecto <span class="pts">(30 puntos)</span></h3>
+            <h4>4. Análisis por sector - Tu Región <span class="pts">(15 pts)</span></h4>
+            <ul>
+                <li>Filtra la muestra regional al sector construcción/ingeniería (códigos SCIAN relevantes)</li>
+                <li>Estima la ecuación de Mincer para este subsector</li>
+                <li>Compara los retornos con la muestra regional general</li>
+                <li>¿Qué implica esto para Geotest en tu región?</li>
+            </ul>
 
-            <h4>4. Analisis por nivel educativo <span class="pts">(15 pts)</span></h4>
+            <h4>5. Aplicación al proyecto - Tu Región <span class="pts">(15 pts)</span></h4>
             <ul>
                 <li>Estima un modelo con dummies de nivel educativo (secundaria, preparatoria, licenciatura, posgrado)</li>
                 <li>Calcula el "premio salarial" de cada nivel respecto a secundaria</li>
-                <li>¿Como se comparan estos premios con la estructura de niveles de la empresa?</li>
+                <li>¿Cómo se comparan estos premios regionales con la estructura de la empresa?</li>
             </ul>
 
-            <h4>5. Retornos por sector <span class="pts">(15 pts)</span></h4>
+            <h3>Parte 3: Comparaciones <span class="pts">(20 puntos)</span></h3>
+
+            <h4>6A. Comparación Regional vs Nacional <span class="pts">(10 pts)</span></h4>
             <ul>
-                <li>Filtra la muestra al sector construccion/ingenieria (codigos SCIAN relevantes)</li>
-                <li>Estima la ecuacion de Mincer para este subsector</li>
-                <li>Compara los retornos con la muestra general</li>
-                <li>¿Que implica esto para la competitividad salarial de la empresa?</li>
+                <li>Compara los retornos de tu región con los nacionales</li>
+                <li>Proporciona hipótesis sobre las diferencias observadas</li>
             </ul>
 
-            <h3>Parte 3: Reflexion <span class="pts">(30 puntos)</span></h3>
-
-            <h4>6. Implicaciones para compensaciones <span class="pts">(20 pts)</span></h4>
-            <p>Responde en maximo 500 palabras:</p>
+            <h4>6B. Comparación Temporal 2022 vs 2024 <span class="pts">(10 pts)</span></h4>
             <ul>
-                <li>¿Que factores del capital humano deberia considerar la empresa en su estructura salarial?</li>
-                <li>¿Como justificarias diferencias salariales entre puestos usando evidencia econometrica?</li>
-                <li>¿Que limitaciones tiene la ecuacion de Mincer para el diseno de tabuladores?</li>
+                <li>Compara tus resultados nacionales con los obtenidos en clase (ENIGH 2022)</li>
+                <li>¿Han cambiado los retornos? ¿Por qué podría ser?</li>
             </ul>
 
-            <h4>7. Comparacion temporal <span class="pts">(10 pts)</span></h4>
+            <h3>Parte 4: Visualización y Reflexión <span class="pts">(10 puntos)</span></h3>
+
+            <h4>7. Gráficas de tu región <span class="pts">(10 pts)</span></h4>
             <ul>
-                <li>Compara tus resultados con los obtenidos en clase (ENIGH 2022)</li>
-                <li>¿Han cambiado los retornos a la educacion? ¿Por que podria ser?</li>
+                <li>Histograma de log salarios</li>
+                <li>Scatter plot: Educación vs Log Salario</li>
+                <li>Perfil edad-ingresos por nivel educativo</li>
+                <li><strong>Importante:</strong> Todos los gráficos deben indicar tu región en el título</li>
             </ul>
 
             <h2>Entregables</h2>
             <ol>
-                <li><strong>Archivo Stata (.do)</strong> con todo el codigo comentado</li>
-                <li><strong>Documento PDF</strong> con tablas de regresion, graficas y respuestas</li>
-                <li><strong>Carpeta de resultados</strong> con tablas y graficas exportadas</li>
+                <li><strong>Archivo Stata (.do)</strong> con tu matrícula configurada y todo el código comentado</li>
+                <li><strong>Documento PDF</strong> con tablas de regresión, gráficas y respuestas a todas las preguntas de reflexión</li>
+                <li><strong>Carpeta de resultados</strong> con tablas y gráficas exportadas (nombradas con tu código de región)</li>
             </ol>
 
-            <h2>Rubrica de Evaluacion</h2>
+            <h2>Preguntas de Reflexión</h2>
+            <p>Tu PDF debe responder las siguientes preguntas:</p>
+            <ul>
+                <li><strong>1.1:</strong> Tamaño de muestra nacional vs ENIGH 2022</li>
+                <li><strong>2.1:</strong> Interpretación del coeficiente de escolaridad</li>
+                <li><strong>4.1:</strong> Sesgo por variables omitidas en tu región</li>
+                <li><strong>5.1:</strong> Retornos sectoriales en tu región</li>
+                <li><strong>6A:</strong> Comparación tu región vs nacional</li>
+                <li><strong>6B:</strong> Comparación temporal 2022 vs 2024</li>
+                <li><strong>7.1:</strong> Premios educativos y estructura de la empresa</li>
+                <li><strong>9.1:</strong> Reflexión final (máx 500 palabras)</li>
+            </ul>
 
-            <h3>Analisis Tecnico (40 puntos)</h3>
+            <h2>Rúbrica de Evaluación</h2>
+
+            <h3>Análisis Técnico (40 puntos)</h3>
             <table class="rubric-table">
                 <thead>
                     <tr>
@@ -127,37 +186,37 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Preparacion de datos</strong></td>
-                        <td>Muestra correctamente filtrada, variables bien construidas</td>
+                        <td><strong>Preparación de datos</strong></td>
+                        <td>Muestra correctamente filtrada (nacional y regional), variables bien construidas</td>
                         <td>Muestra correcta con errores menores</td>
                         <td>Errores significativos en filtros</td>
                         <td>Datos mal preparados</td>
                     </tr>
                     <tr>
-                        <td><strong>Estimacion OLS</strong></td>
-                        <td>Modelo correcto, errores robustos, interpretacion precisa</td>
+                        <td><strong>Estimación OLS</strong></td>
+                        <td>Modelo correcto, errores robustos, interpretación precisa</td>
                         <td>Modelo correcto con errores menores</td>
-                        <td>Errores en especificacion</td>
+                        <td>Errores en especificación</td>
                         <td>Modelo incorrecto</td>
                     </tr>
                     <tr>
-                        <td><strong>Extensiones</strong></td>
-                        <td>Controles relevantes, comparacion rigurosa</td>
-                        <td>Controles correctos, comparacion superficial</td>
+                        <td><strong>Extensiones regionales</strong></td>
+                        <td>Controles relevantes, comparación regional rigurosa</td>
+                        <td>Controles correctos, comparación superficial</td>
                         <td>Controles incompletos</td>
                         <td>No incluye extensiones</td>
                     </tr>
                     <tr>
-                        <td><strong>Analisis sectorial</strong></td>
-                        <td>Filtro correcto, comparacion informativa</td>
-                        <td>Analisis correcto con conexion debil</td>
-                        <td>Analisis incompleto</td>
+                        <td><strong>Análisis sectorial</strong></td>
+                        <td>Filtro correcto, comparación informativa para Geotest</td>
+                        <td>Análisis correcto con conexión débil</td>
+                        <td>Análisis incompleto</td>
                         <td>No incluye</td>
                     </tr>
                 </tbody>
             </table>
 
-            <h3>Aplicacion al Proyecto (30 puntos)</h3>
+            <h3>Aplicación al Proyecto (30 puntos)</h3>
             <table class="rubric-table">
                 <thead>
                     <tr>
@@ -171,22 +230,22 @@
                 <tbody>
                     <tr>
                         <td><strong>Premios educativos</strong></td>
-                        <td>Calculo correcto, conexion explicita con la empresa</td>
-                        <td>Calculo correcto, conexion implicita</td>
-                        <td>Errores de calculo menores</td>
-                        <td>Calculo incorrecto</td>
+                        <td>Cálculo correcto, conexión explícita con la empresa usando datos regionales</td>
+                        <td>Cálculo correcto, conexión implícita</td>
+                        <td>Errores de cálculo menores</td>
+                        <td>Cálculo incorrecto</td>
                     </tr>
                     <tr>
-                        <td><strong>Implicaciones</strong></td>
-                        <td>Reflexion profunda, argumentos basados en evidencia</td>
-                        <td>Reflexion adecuada</td>
-                        <td>Reflexion superficial</td>
-                        <td>No incluye reflexion</td>
+                        <td><strong>Comparaciones</strong></td>
+                        <td>Comparación regional/nacional y temporal bien fundamentadas</td>
+                        <td>Comparaciones adecuadas</td>
+                        <td>Comparaciones superficiales</td>
+                        <td>No incluye comparaciones</td>
                     </tr>
                 </tbody>
             </table>
 
-            <h3>Presentacion y Codigo (30 puntos)</h3>
+            <h3>Presentación y Código (30 puntos)</h3>
             <table class="rubric-table">
                 <thead>
                     <tr>
@@ -199,38 +258,44 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Codigo Stata</strong></td>
-                        <td>Bien organizado, comentado, reproducible</td>
-                        <td>Funcional con comentarios basicos</td>
+                        <td><strong>Código Stata</strong></td>
+                        <td>Matrícula configurada, bien organizado, comentado, reproducible</td>
+                        <td>Funcional con comentarios básicos</td>
                         <td>Funcional pero desorganizado</td>
-                        <td>No funciona</td>
+                        <td>No funciona o matrícula no configurada</td>
                     </tr>
                     <tr>
-                        <td><strong>Tablas y graficas</strong></td>
-                        <td>Formato publicacion, etiquetas claras</td>
+                        <td><strong>Tablas y gráficas</strong></td>
+                        <td>Formato publicación, etiquetas claras incluyendo región</td>
                         <td>Formato adecuado con errores menores</td>
-                        <td>Formato basico</td>
-                        <td>Ilegibles</td>
+                        <td>Formato básico</td>
+                        <td>Ilegibles o sin identificación de región</td>
                     </tr>
                     <tr>
                         <td><strong>Documento</strong></td>
-                        <td>Bien estructurado, redaccion clara</td>
+                        <td>Bien estructurado, redacción clara, todas las reflexiones</td>
                         <td>Estructura clara con errores menores</td>
                         <td>Estructura confusa</td>
-                        <td>No entregado</td>
+                        <td>No entregado o incompleto</td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="alert alert-info">
-                <strong>Recursos:</strong> Datos ENIGH 2024 (Canvas), Template de codigo: actividades/M01_actividad_estudiante.do
+                <strong>Recursos:</strong>
+                <ul>
+                    <li>Datos ENIGH 2024 (Canvas)</li>
+                    <li>Template de código: <code>actividades/M01_actividad_estudiante.do</code></li>
+                    <li>Tabla de códigos de estado INEGI</li>
+                </ul>
             </div>
 
             <div class="alert alert-warning">
                 <strong>Notas importantes:</strong>
                 <ul>
-                    <li><strong>Plagio:</strong> El codigo y analisis deben ser propios.</li>
-                    <li><strong>IA:</strong> Pueden usar Claude/ChatGPT para debugging, pero deben entender todo su codigo.</li>
+                    <li><strong>Matrícula:</strong> Asegúrate de configurar tu matrícula correctamente en el archivo .do (línea 45)</li>
+                    <li><strong>Plagio:</strong> El código y análisis deben ser propios. Estudiantes con la misma región pueden discutir, pero deben entregar trabajos independientes.</li>
+                    <li><strong>IA:</strong> Pueden usar Claude/ChatGPT para debugging, pero deben entender todo su código.</li>
                     <li><strong>Formato de tablas:</strong> Usar esttab o outreg2 para exportar tablas profesionales.</li>
                 </ul>
             </div>
@@ -238,7 +303,7 @@
     </div>
 
     <footer>
-        <p>EC3003B - Economia Laboral Aplicada | <a href="index.html">Volver al inicio</a></p>
+        <p>EC3003B - Economía Laboral Aplicada | <a href="index.html">Volver al inicio</a></p>
     </footer>
 </body>
 </html>
