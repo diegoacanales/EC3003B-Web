@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EC3003B - Proyecto Geotest</title>
+    <style>
+        :root {
+            --tec-blue: #002F6C;
+            --tec-light: #0047AB;
+            --accent: #E31837;
+            --gray: #f5f5f5;
+            --dark: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--gray);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--tec-blue), var(--tec-light));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .info-box h2 {
+            color: var(--tec-blue);
+            border-bottom: 2px solid var(--tec-blue);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat {
+            background: var(--gray);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--tec-blue);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .entregables {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .entregable {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .entregable:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .entregable-num {
+            background: var(--tec-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .entregable-info {
+            flex-grow: 1;
+        }
+
+        .entregable-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .entregable-info h3 a {
+            color: var(--tec-blue);
+            text-decoration: none;
+        }
+
+        .entregable-info h3 a:hover {
+            text-decoration: underline;
+        }
+
+        .entregable-meta {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .badge-individual {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .badge-grupal {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .peso {
+            background: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: var(--tec-blue);
+            color: white;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .area-header {
+            background: var(--gray);
+            font-weight: bold;
+        }
+
+        .check {
+            color: #2e7d32;
+        }
+
+        .cross {
+            color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--tec-blue);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EC3003B</h1>
+        <p>Economia Laboral Aplicada | Proyecto Geotest</p>
+    </header>
+
+    <div class="container">
+        <div class="info-box">
+            <h2>Informacion del Proyecto</h2>
+            <p><strong>Socio formador:</strong> Geotest (empresa de ingenieria geotecnica)</p>
+            <p><strong>Metodologia:</strong> WorldatWork</p>
+            <p><strong>Modelo:</strong> Option B - Datos anonimizados, sin entrevistas</p>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">~260</div>
+                    <div class="stat-label">Empleados</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">33</div>
+                    <div class="stat-label">Puestos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Niveles</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Areas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h2>Entregables del Proyecto</h2>
+
+            <div class="entregables">
+                <div class="entregable">
+                    <div class="entregable-num">E1</div>
+                    <div class="entregable-info">
+                        <h3><a href="E1_actividad_mincer.html">Actividad Mincer</a></h3>
+                        <div class="entregable-meta">
+                            Jue 12 feb, 11:59pm
+                            <span class="badge badge-individual">Individual</span>
+                        </div>
+                    </div>
+                    <div class="peso">10%</div>
+                </div>
+
+                <div class="entregable">
+                    <div class="entregable-num">E2</div>
+                    <div class="entregable-info">
+                        <h3><a href="E2_fichas_puesto.html">Fichas de Puesto</a></h3>
+                        <div class="entregable-meta">
+                            Mie 18 feb, 11:59pm
+                            <span class="badge badge-individual">Individual (~3 puestos)</span>
+                        </div>
+                    </div>
+                    <div class="peso">10%</div>
+                </div>
+
+                <div class="entregable">
+                    <div class="entregable-num">E3</div>
+                    <div class="entregable-info">
+                        <h3><a href="E3_evaluacion_puntos.html">Evaluacion por Puntos</a></h3>
+                        <div class="entregable-meta">
+                            Lun 23 feb, 11:59pm
+                            <span class="badge badge-grupal">Grupal</span>
+                        </div>
+                    </div>
+                    <div class="peso">15%</div>
+                </div>
+
+                <div class="entregable">
+                    <div class="entregable-num">E4</div>
+                    <div class="entregable-info">
+                        <h3><a href="E4_tabulador_salarial.html">Tabulador Salarial + Metricas</a></h3>
+                        <div class="entregable-meta">
+                            Mie 25 feb, 11:59pm
+                            <span class="badge badge-grupal">Grupal</span>
+                        </div>
+                    </div>
+                    <div class="peso">15%</div>
+                </div>
+
+                <div class="entregable">
+                    <div class="entregable-num">E5</div>
+                    <div class="entregable-info">
+                        <h3><a href="E5_politica_salarial.html">Politica Salarial</a></h3>
+                        <div class="entregable-meta">
+                            Mar 3 mar, 11:59pm
+                            <span class="badge badge-grupal">Grupal</span>
+                        </div>
+                    </div>
+                    <div class="peso">10%</div>
+                </div>
+
+                <div class="entregable">
+                    <div class="entregable-num">E6</div>
+                    <div class="entregable-info">
+                        <h3><a href="E6_borrador_final.html">Borrador Final</a></h3>
+                        <div class="entregable-meta">
+                            Jue 5 mar, 11:59pm
+                            <span class="badge badge-grupal">Grupal</span>
+                        </div>
+                    </div>
+                    <div class="peso">5%</div>
+                </div>
+
+                <div class="entregable">
+                    <div class="entregable-num">E7</div>
+                    <div class="entregable-info">
+                        <h3><a href="E7_presentacion_final.html">Presentacion Final</a></h3>
+                        <div class="entregable-meta">
+                            Vie 13 mar
+                            <span class="badge badge-grupal">Grupal</span>
+                        </div>
+                    </div>
+                    <div class="peso">35%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h2>Listado de 33 Puestos</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Puesto</th>
+                        <th>Personas</th>
+                        <th>Desc.</th>
+                        <th>Manual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="area-header"><td colspan="5">Area Operativa / Campo (7 puestos, ~133 personas)</td></tr>
+                    <tr><td>1</td><td>Auxiliar de brigada</td><td>30</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>2</td><td>Auxiliar de brigada de geofisica</td><td>4</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>3</td><td>Auxiliar de laboratorio</td><td>36</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>4</td><td>Ayudante general</td><td>20</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>5</td><td>Jefe de Brigada</td><td>10</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>6</td><td>Maniobrista</td><td>13</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>9</td><td>Soldador</td><td>17</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
+
+                    <tr class="area-header"><td colspan="5">Operadores de Maquinaria (5 puestos, ~7 personas)</td></tr>
+                    <tr><td>24</td><td>Op. maquinaria N2 (Grua Articulada)</td><td>1</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>25</td><td>Op. maquinaria N2 (Grua Telescopica)</td><td>1</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>26</td><td>Op. maquinaria N2 (Microperforadora)</td><td>2</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>27</td><td>Op. maquinaria N3 (Perforadora)</td><td>2</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>28</td><td>Op. maquinaria N1 (Retroexcavadora)</td><td>1</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+
+                    <tr class="area-header"><td colspan="5">Area Tecnica / Supervision (8 puestos, ~98 personas)</td></tr>
+                    <tr><td>10</td><td>Tecnico Laboratorista</td><td>53</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>11</td><td>Auxiliar de Ingenieria</td><td>13</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>12</td><td>Auxiliar de residente</td><td>8</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>13</td><td>Geofisico Jr.</td><td>6</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>14</td><td>Ingeniero Geofisico Auxiliar</td><td>4</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>15</td><td>Supervisor de campo</td><td>5</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>16</td><td>Supervisor de seguridad</td><td>5</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>17</td><td>Supervisor Geotecnista</td><td>4</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+
+                    <tr class="area-header"><td colspan="5">Coordinacion / Jefatura (6 puestos, ~19 personas)</td></tr>
+                    <tr><td>7</td><td>Responsable de Area</td><td>5</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>8</td><td>Responsable de Obra</td><td>8</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>18</td><td>Jefe de laboratorio</td><td>3</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>19</td><td>Coordinador de Geologia</td><td>1</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>20</td><td>Coordinador de Infraestructura</td><td>1</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>21</td><td>Coordinador de operaciones</td><td>1</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+
+                    <tr class="area-header"><td colspan="5">Direccion (2 puestos, 2 personas)</td></tr>
+                    <tr><td>22</td><td>Director General</td><td>1</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>23</td><td>Gerente de Laboratorio</td><td>1</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+
+                    <tr class="area-header"><td colspan="5">Administracion / Finanzas (5 puestos, ~6 personas)</td></tr>
+                    <tr><td>29</td><td>Analista de contabilidad</td><td>2</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>30</td><td>Gerente de administracion</td><td>1</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>31</td><td>Encargada de contabilidad</td><td>1</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>32</td><td>Encargada de remesas</td><td>1</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                    <tr><td>33</td><td>Coordinador de compras</td><td>1</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                <span class="cross">&#10007;</span> = 7 puestos sin descripcion (estudiantes deben elaborarla)
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>EC3003B - Economia Laboral Aplicada | Tecnologico de Monterrey, Campus Puebla</p>
+        <p>Febrero-Marzo 2025 | <a href="https://github.com/diegoacanales/EC3003B">GitHub</a></p>
+    </footer>
+</body>
+</html>

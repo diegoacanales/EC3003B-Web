@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E1: Actividad Mincer | EC3003B</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>E1: Actividad Mincer</h1>
+            <span class="badge">10% | Individual</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">← Volver al inicio</a>
+        </div>
+
+        <div class="content">
+            <div class="meta-box">
+                <div class="meta-item">
+                    <div class="meta-label">Fecha limite</div>
+                    <div class="meta-value">Jue 12 feb, 11:59pm</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Peso</div>
+                    <div class="meta-value">10%</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Tipo</div>
+                    <div class="meta-value">Individual</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Modulos</div>
+                    <div class="meta-value">M01, M02, M03</div>
+                </div>
+            </div>
+
+            <h2>Objetivo de Aprendizaje</h2>
+            <p>Aplicar la ecuacion de Mincer para estimar los retornos a la educacion y experiencia en el mercado laboral mexicano, interpretando los coeficientes en el contexto de decisiones de compensacion.</p>
+
+            <h2>Contexto</h2>
+            <p>Antes de disenar un sistema de compensaciones para Geotest, necesitamos entender como el mercado laboral mexicano valora diferentes caracteristicas del capital humano. La ecuacion de Mincer es el punto de partida para cuantificar estos retornos.</p>
+
+            <h2>Instrucciones</h2>
+
+            <h3>Parte 1: Replicacion con ENIGH 2024 <span class="pts">(40 puntos)</span></h3>
+
+            <h4>1. Preparacion de datos <span class="pts">(10 pts)</span></h4>
+            <ul>
+                <li>Filtra la muestra a trabajadores asalariados de 18-65 anos</li>
+                <li>Construye las variables: log(ingreso por hora), anos de educacion, experiencia potencial, experiencia²</li>
+                <li>Reporta estadisticas descriptivas de tu muestra final</li>
+            </ul>
+
+            <h4>2. Estimacion basica <span class="pts">(15 pts)</span></h4>
+            <div class="formula">
+                ln(w) = β₀ + β₁·Educ + β₂·Exp + β₃·Exp² + ε
+            </div>
+            <ul>
+                <li>Presenta la tabla de regresion con errores estandar robustos</li>
+                <li>Interpreta cada coeficiente en terminos porcentuales</li>
+            </ul>
+
+            <h4>3. Extensiones <span class="pts">(15 pts)</span></h4>
+            <ul>
+                <li>Agrega variables de control: genero, sector formal/informal, region</li>
+                <li>Compara los coeficientes con y sin controles</li>
+                <li>Discute el sesgo por variables omitidas</li>
+            </ul>
+
+            <h3>Parte 2: Aplicacion a Geotest <span class="pts">(30 puntos)</span></h3>
+
+            <h4>4. Analisis por nivel educativo <span class="pts">(15 pts)</span></h4>
+            <ul>
+                <li>Estima un modelo con dummies de nivel educativo (secundaria, preparatoria, licenciatura, posgrado)</li>
+                <li>Calcula el "premio salarial" de cada nivel respecto a secundaria</li>
+                <li>¿Como se comparan estos premios con la estructura de niveles de Geotest?</li>
+            </ul>
+
+            <h4>5. Retornos por sector <span class="pts">(15 pts)</span></h4>
+            <ul>
+                <li>Filtra la muestra al sector construccion/ingenieria (codigos SCIAN relevantes)</li>
+                <li>Estima la ecuacion de Mincer para este subsector</li>
+                <li>Compara los retornos con la muestra general</li>
+                <li>¿Que implica esto para la competitividad salarial de Geotest?</li>
+            </ul>
+
+            <h3>Parte 3: Reflexion <span class="pts">(30 puntos)</span></h3>
+
+            <h4>6. Implicaciones para compensaciones <span class="pts">(20 pts)</span></h4>
+            <p>Responde en maximo 500 palabras:</p>
+            <ul>
+                <li>¿Que factores del capital humano deberia considerar Geotest en su estructura salarial?</li>
+                <li>¿Como justificarias diferencias salariales entre puestos usando evidencia econometrica?</li>
+                <li>¿Que limitaciones tiene la ecuacion de Mincer para el diseno de tabuladores?</li>
+            </ul>
+
+            <h4>7. Comparacion temporal <span class="pts">(10 pts)</span></h4>
+            <ul>
+                <li>Compara tus resultados con los obtenidos en clase (ENIGH 2022)</li>
+                <li>¿Han cambiado los retornos a la educacion? ¿Por que podria ser?</li>
+            </ul>
+
+            <h2>Entregables</h2>
+            <ol>
+                <li><strong>Archivo Stata (.do)</strong> con todo el codigo comentado</li>
+                <li><strong>Documento PDF</strong> con tablas de regresion, graficas y respuestas</li>
+                <li><strong>Carpeta de resultados</strong> con tablas y graficas exportadas</li>
+            </ol>
+
+            <h2>Rubrica de Evaluacion</h2>
+
+            <h3>Analisis Tecnico (40 puntos)</h3>
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Criterio</th>
+                        <th>Excelente (10)</th>
+                        <th>Bueno (8)</th>
+                        <th>Suficiente (6)</th>
+                        <th>Insuficiente (0-4)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Preparacion de datos</strong></td>
+                        <td>Muestra correctamente filtrada, variables bien construidas</td>
+                        <td>Muestra correcta con errores menores</td>
+                        <td>Errores significativos en filtros</td>
+                        <td>Datos mal preparados</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Estimacion OLS</strong></td>
+                        <td>Modelo correcto, errores robustos, interpretacion precisa</td>
+                        <td>Modelo correcto con errores menores</td>
+                        <td>Errores en especificacion</td>
+                        <td>Modelo incorrecto</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Extensiones</strong></td>
+                        <td>Controles relevantes, comparacion rigurosa</td>
+                        <td>Controles correctos, comparacion superficial</td>
+                        <td>Controles incompletos</td>
+                        <td>No incluye extensiones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analisis sectorial</strong></td>
+                        <td>Filtro correcto, comparacion informativa</td>
+                        <td>Analisis correcto con conexion debil</td>
+                        <td>Analisis incompleto</td>
+                        <td>No incluye</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Aplicacion al Proyecto (30 puntos)</h3>
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Criterio</th>
+                        <th>Excelente (15)</th>
+                        <th>Bueno (12)</th>
+                        <th>Suficiente (9)</th>
+                        <th>Insuficiente (0-6)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Premios educativos</strong></td>
+                        <td>Calculo correcto, conexion explicita con Geotest</td>
+                        <td>Calculo correcto, conexion implicita</td>
+                        <td>Errores de calculo menores</td>
+                        <td>Calculo incorrecto</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Implicaciones</strong></td>
+                        <td>Reflexion profunda, argumentos basados en evidencia</td>
+                        <td>Reflexion adecuada</td>
+                        <td>Reflexion superficial</td>
+                        <td>No incluye reflexion</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Presentacion y Codigo (30 puntos)</h3>
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Criterio</th>
+                        <th>Excelente (10)</th>
+                        <th>Bueno (8)</th>
+                        <th>Suficiente (6)</th>
+                        <th>Insuficiente (0-4)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Codigo Stata</strong></td>
+                        <td>Bien organizado, comentado, reproducible</td>
+                        <td>Funcional con comentarios basicos</td>
+                        <td>Funcional pero desorganizado</td>
+                        <td>No funciona</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tablas y graficas</strong></td>
+                        <td>Formato publicacion, etiquetas claras</td>
+                        <td>Formato adecuado con errores menores</td>
+                        <td>Formato basico</td>
+                        <td>Ilegibles</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Documento</strong></td>
+                        <td>Bien estructurado, redaccion clara</td>
+                        <td>Estructura clara con errores menores</td>
+                        <td>Estructura confusa</td>
+                        <td>No entregado</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-info">
+                <strong>Recursos:</strong> Datos ENIGH 2024 (Canvas), Template de codigo: actividades/M01_actividad_estudiante.do
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>Notas importantes:</strong>
+                <ul>
+                    <li><strong>Plagio:</strong> El codigo y analisis deben ser propios.</li>
+                    <li><strong>IA:</strong> Pueden usar Claude/ChatGPT para debugging, pero deben entender todo su codigo.</li>
+                    <li><strong>Formato de tablas:</strong> Usar esttab o outreg2 para exportar tablas profesionales.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>EC3003B - Economia Laboral Aplicada | <a href="index.html">Volver al inicio</a></p>
+    </footer>
+</body>
+</html>
